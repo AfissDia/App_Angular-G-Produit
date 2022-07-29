@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="border">
+    <button class="btn btn-md btn-outline-primary">
+      <i class="fa fa-user"></i>New Type
+    </button>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let type of types">
+      <td><span>{{type.id}}</span></td>
+      <td><span>{{type.nom}}</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
