@@ -1,4 +1,4 @@
-export class Type {
-  id!: number;
-  nom!: string;
+export interface Type {
+  id: number;
+  nom: string;
 }

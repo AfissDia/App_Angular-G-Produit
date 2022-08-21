@@ -30,8 +30,8 @@
     </tr>
     </tbody>
   </table>
-</div>
-<ng-template #content let-modal>
+
+<!--<ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">New Produit</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -41,30 +41,29 @@
   <div class="modal-body">
       <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="nom">Name</label>
+        <label >Name</label>
         <div class="input-group">
-          <input id="nom" name="nom" class="form-control" ngModel>
+          <input id="nom"  class="form-control" [(ngModel)]="produit.nom">
         </div>
       </div>
       <div class="form-group">
-        <label for="prix">Prix</label>
+        <label for="prix" >Prix</label>
         <div class="input-group">
-          <input id="prix" name="prix" class="form-control" ngModel>
+          <input id="prix" name="prix" class="form-control" [(ngModel)]="produit.prix">
         </div>
       </div>
 
         <div class="form-group">
-          <label for="id">Type Produit</label>
+          <label for="type_id" >Type Produit: {{khd}} </label>
           <div class="input-group">
-            <select id="id" name="type.id" class="form-control"  ngModel>
-              <option ngModel> ---SELECT---</option>
-              <option *ngFor="let type of types"  [value]="type.id" >
-                {{type.nom}}
-              </option>
-            </select>
+        <p>{{khd}}</p>
+          &lt;!&ndash;  <select id="type_id" name="type_id" class="form-control" >
+              <option *ngFor="let k of khd">1</option>
+
+            </select>&ndash;&gt;
+
           </div>
         </div>
-
 
 
       <div class="border text-center">
@@ -75,10 +74,154 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
   </div>
-</ng-template>
+</ng-template>-->
+<!--<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label>Nom</label>
+        <div class="input-group">
+          <input class="form-control" name="nom" ngModel>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Prix</label>
+        <div class="input-group">
+          <input name="prix" class="form-control" ngModel />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="type_produit_id">Type Produit</label>
+        <div class="input-group">
+          <select id="type_produit_id" name="type_produit_id" class="form-control" ngModel>
+            <option ngModel >-SELECT-</option>
+            <option *ngFor="let types of type" [value]="types.id" >
+              {{types.nom}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="border text-center">
+        <button type="submit" data-dismiss="modal" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+    &lt;!&ndash;
+          <form [formGroup] = "rform" (ngSubmit)="send()">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <div class="input-group">
+                <input id="nom" class="form-control" formControlName="nom">
+              </div>
+            </div>
 
+            <div class="form-group">
+              <label for="prix">prix</label>
+              <div class="input-group">
+                <input id="prix" class="form-control" formControlName="prix" >
+              </div>
+            </div>
 
-<ng-template #contentdetails let-modal>
+            <div class="input-group">
+              <label>Type Produit</label>
+              <select class="form-control" formControlName="produit">
+                <option ngModel> -&#45;&#45;SELECT-&#45;&#45;</option>
+                <option *ngFor="let typeProduit of typeProduits"  value="{{typeProduit.id}}" >
+                  {{typeProduit.nom}}
+                </option>
+              </select>
+            </div>
+
+            <div class="border text-center">
+              <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+          </form>&ndash;&gt;
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">close</button>
+  </div>
+</ng-template>-->
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New produit</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <label>Nom</label>
+          <div class="input-group">
+            <input class="form-control" name="nom" ngModel>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Prix</label>
+          <div class="input-group">
+            <input name="prix" class="form-control" ngModel />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="type_id">Type Produit</label>
+          <div class="input-group">
+            <select id="type_id" name="type_id" class="form-control" ngModel>
+              <option ngModel >-SELECT-</option>
+              <option *ngFor="let typeProduits of type" [value]="typeProduits.id" ngModel >
+                {{typeProduits.nom}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="border text-center">
+          <button type="submit" data-dismiss="modal" class="btn btn-info">Submit</button>
+        </div>
+      </form>
+      <!--
+            <form [formGroup] = "rform" (ngSubmit)="send()">
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <div class="input-group">
+                  <input id="nom" class="form-control" formControlName="nom">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="prix">prix</label>
+                <div class="input-group">
+                  <input id="prix" class="form-control" formControlName="prix" >
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Type Produit</label>
+                <select class="form-control" formControlName="produit">
+                  <option ngModel> -&#45;&#45;SELECT-&#45;&#45;</option>
+                  <option *ngFor="let typeProduit of typeProduits"  value="{{typeProduit.id}}" >
+                    {{typeProduit.nom}}
+                  </option>
+                </select>
+              </div>
+
+              <div class="border text-center">
+                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+              </div>
+            </form>-->
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">close</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentdetails let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-titles">Details Produit</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -100,23 +243,24 @@
         </div>
       </div>
 
-      <div class="form-group">
+ <!--     <div class="form-group">
         <label >Type Produit</label>
         <div class="input-group">
           <select id="tid"  class="form-control"  ngModel>
-            <option ngModel> ---SELECT---</option>
-            <option *ngFor="let type of types"  [value]="type.id" ngModel>
+            <option ngModel> -&#45;&#45;SELECT-&#45;&#45;</option>
+            <option *ngFor="let types of type"  [value]="type.id" ngModel>
               {{type.nom}}
             </option>
           </select>
         </div>
-      </div>
-      <div class="border text-center">
+      </div>-->
+<!--      <div class="border text-center">
         <button data-dismiss="modal" class="btn btn-info">Submit</button>
-      </div>
+      </div>-->
     </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
   </div>
 </ng-template>
+</div>

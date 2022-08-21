@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
-import {Type} from "../models/type";
+
 import {HttpClient} from "@angular/common/http";
 
 // @ts-ignore
